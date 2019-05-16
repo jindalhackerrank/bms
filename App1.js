@@ -69,19 +69,7 @@ class App extends Component {
 					}
 					if (flag === 1) break;
 				}
-			}else{
-        let seatIndex = layout[category]['rows'][rowIndex].seats.findIndex(value=>value.seatNumber===seatNumber)+1;
-        let totalSeatsInRow = layout[category]['rows'][rowIndex].seats.length;
-        let totalSeatsNeeded = parseInt(this.nSeats.value) - (totalSelectedSeats + 1);
-        if(totalSeatsNeeded <= (totalSeatsInRow-seatIndex)){
-          let sIndex = seatIndex;
-          let lIndex = sIndex+totalSeatsNeeded
-          for(let k = sIndex ; k< lIndex;k++){
-            if( layout[category]['rows'][rowIndex].seats[k].status!=="occupied")
-            layout[category]['rows'][rowIndex].seats[k].status = "selected";
-          }
-        }
-      }
+			}
 			seat.status = 'selected';
 		} else if (seat.status === 'selected') {
 			seat.status = 'empty';
